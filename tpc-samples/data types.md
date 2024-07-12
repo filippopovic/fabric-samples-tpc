@@ -2,7 +2,9 @@
 
 This document contains list of all tables, columns and data types used in benchmarks:
 
-[TOC]
+- [TPC-H data types](#tpc-h-data-types)
+
+- [TPC-DS data types](#tpc-ds-data-types)
 
 
 
