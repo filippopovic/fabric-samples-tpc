@@ -6,8 +6,8 @@ Before describing the object creation guidelines and scripts, let's briefly expl
 
 | **Aspect**          | **TPC-H**                                                    | **TPC-DS**                                                   |
 | ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Purpose**         | Measuresdecision support system performance in a data warehouse context. | Measuresdecision support system and Big Data performance.    |
-| **Data Model**      | Retailproduct supplier schema, broadly applicable.           | Similarto TPC-H, but designed to be broadly representative of modern decisionsupport system. |
+| **Purpose**         | Measures decision support system performance in a data warehouse context. | Measures decision support system and Big Data performance.   |
+| **Data Model**      | Retail product supplier schema, broadly applicable.          | Similar to TPC-H, but designed to be broadly representative of modern decision support system. |
 | **Schema**          | 8 tables                                                     | 24 tables                                                    |
 | **Queries**         | Set of 22 ad-hoc queries simulating business intelligence workloads. | Set of 99 queries covering various operational requirements and complexities. |
 | **Characteristics** | OLAP workload<br />Large data volumes<br />High CPU and I/O demands | Advanced SQL features and functions<br />High CPU and I/O demands |
@@ -70,7 +70,7 @@ Before continuing, please make sure you have:
 
 ## Step 1 - Create database objects
 
-This step creates necessary tables in either the warehouse or lakehouse, in a way to get optimal performance.
+This step creates necessary tables in either the warehouse or lakehouse, in a way to get optimal performance. Complete list of tables, columns and data types can be found here.
 
 **Preparation**: Ensure that you have already set up a data warehouse or lakehouse. This is a prerequisite for the steps that follow.
 
