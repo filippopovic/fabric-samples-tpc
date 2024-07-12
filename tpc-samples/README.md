@@ -70,11 +70,7 @@ Before continuing, please make sure you have:
 
 ## Step 1 - Create database objects
 
-This step creates necessary tables in either the warehouse or lakehouse, in a way to get optimal performance. Complete list of tables, columns and data types can be found [here](data types.md).
-
-
-
-.
+This step creates necessary tables in either the warehouse or lakehouse, in a way to get optimal performance. Complete list of tables, columns and data types can be found [here](./data-types.md).
 
 **Preparation**: Ensure that you have already set up a data warehouse or lakehouse. This is a prerequisite for the steps that follow.
 
