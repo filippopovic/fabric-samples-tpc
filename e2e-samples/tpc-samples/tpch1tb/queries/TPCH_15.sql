@@ -14,8 +14,8 @@ FROM
     FROM
       lineitem
     WHERE
-      L_SHIPDATE >= '1997-03-01' -- [DATE]
-      AND L_SHIPDATE < '1997-06-01' -- [DATE] + 3 months
+      L_SHIPDATE	>= '1997-03-01'
+	    AND L_SHIPDATE	< dateadd(mm, 3, cast ('1997-03-01' as date))
     GROUP BY
       L_SUPPKEY
   ) AS revenue0

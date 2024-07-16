@@ -28,8 +28,8 @@ WHERE
         WHERE
           L_PARTKEY = PS_PARTKEY
           AND L_SUPPKEY = PS_SUPPKEY
-          AND L_SHIPDATE >= '1997-01-01' -- [DATE]
-          AND L_SHIPDATE < '1998-01-01' -- [DATE] + 1 year
+					AND L_SHIPDATE	>= '1997-01-01'
+					AND L_SHIPDATE	< dateadd(yy,1,cast('1997-01-01' as date))
       )
   )
   AND S_NATIONKEY = N_NATIONKEY

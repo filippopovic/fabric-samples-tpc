@@ -4,9 +4,9 @@ SELECT
   count_big(*) AS order_count
 FROM
   orders
-WHERE
-  O_ORDERDATE >= '1997-03-01' -- [DATE]
-  AND O_ORDERDATE < '1997-06-01' -- [DATE] + interval '3' month
+WHERE	
+  O_ORDERDATE	>= '1997-03-01' AND
+	O_ORDERDATE	< dateadd (mm, 3,  cast ('1997-03-01' as date)) 
   AND EXISTS (
     SELECT
       *

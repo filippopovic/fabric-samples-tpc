@@ -13,9 +13,7 @@ SELECT
 FROM
   lineitem
 WHERE
-  L_SHIPDATE <= '1998-10-01'
-  -- l_shipdate <= date '1998-12-01' - interval '[DELTA]' day (3)
-  -- DELTA is randomly selected within [60. 120] - we used 60
+  L_SHIPDATE	<= dateadd(dd, -60, cast('1998-12-01'as date))
 GROUP BY
   L_RETURNFLAG,
   L_LINESTATUS
