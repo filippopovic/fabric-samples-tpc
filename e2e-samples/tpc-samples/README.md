@@ -1,6 +1,6 @@
 # TPCH and DS benchmark setup guide for Fabric Warehouse and SQL Endpoint for analytics
 
-This guide provides instructions for setting up querying part of TPC-H and TPC-DS performance benchmarks using Microsoft Fabric Warehouse and SQL Endpoint for analytics, aiming to achieve the best possible performance. While it does not cover the whole benchmarks, it covers querying part of the benchmarks and can be used as a starting point. 
+This guide provides instructions for setting up querying part of TPC-H and TPC-DS performance benchmarks using Microsoft Fabric Warehouse and SQL Endpoint for analytics, aiming to achieve the best possible performance. While it does not cover the whole benchmarks, it covers querying part of the benchmarks and can be used as a starting point. For official benchmark guidelines, please refer to [TPC-Homepage](https://www.tpc.org/).
 
 Before describing the object creation guidelines and scripts, let's briefly explain the difference between the TPC-H and TPC-DS benchmarks.
 
