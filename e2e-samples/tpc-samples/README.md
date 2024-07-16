@@ -102,9 +102,9 @@ Below, you will find the specific script for the warehouse and the notebook for 
 
 - **Number of source files**: For large files, consider splitting your file into multiple files. Delta or parquet format would be preferred over csv due to compression.
 - **Source file sizes**: Files should be at least 4 MB in size.
-- **Collocation**: For optimal performance, ensure that your source data is in the same geographical region as your warehouse or lakehouse.
+- **Collocation**: For optimal performance, ensure that your source data is in the same geographical region as your warehouse or lakehouse. Storage account used in this repo is in West US 2 region.
 
-Please note that duration of this step may vary depending whether your warehouse or lakehouse is in the same region as source storage account.
+Please note that duration of this step may vary depending whether your warehouse or lakehouse is in the same region as source storage account. 
 
 
 
