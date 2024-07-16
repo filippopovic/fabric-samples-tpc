@@ -15,7 +15,7 @@ GROUP BY
 HAVING
   sum(PS_SUPPLYCOST * PS_AVAILQTY) > (
     SELECT
-      sum(PS_SUPPLYCOST * PS_AVAILQTY) * (0.0001 / {SCALE_FACTOR})-- [FRACTION]
+      sum(PS_SUPPLYCOST * PS_AVAILQTY) * (0.0001 / 1000)-- [FRACTION]
     FROM
       partsupp,
       supplier,

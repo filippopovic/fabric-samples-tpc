@@ -22,7 +22,9 @@ GROUP BY
 ORDER BY
   L_RETURNFLAG,
   L_LINESTATUS
-OPTION (LABEL = 'TPCH-Q1')-- Query 2
+OPTION (LABEL = 'TPCH-Q1')
+
+-- Query 2
 SELECT
   TOP (100) S_ACCTBAL,
   S_NAME,
@@ -66,7 +68,9 @@ ORDER BY
   N_NAME,
   S_NAME,
   P_PARTKEY
-OPTION (LABEL = 'TPCH-Q2')-- Query 3
+OPTION (LABEL = 'TPCH-Q2')
+
+-- Query 3
 SELECT
   TOP (10) L_ORDERKEY,
   sum(L_EXTENDEDPRICE * (1 - L_DISCOUNT)) AS revenue,
@@ -90,7 +94,9 @@ GROUP BY
 ORDER BY
   revenue DESC,
   O_ORDERDATE
-OPTION (LABEL = 'TPCH-Q3')-- Query 4
+OPTION (LABEL = 'TPCH-Q3')
+
+-- Query 4
 SELECT
   O_ORDERPRIORITY,
   count_big(*) AS order_count
@@ -112,7 +118,9 @@ GROUP BY
   O_ORDERPRIORITY
 ORDER BY
   O_ORDERPRIORITY
-OPTION (LABEL = 'TPCH-Q4')-- Query 5
+OPTION (LABEL = 'TPCH-Q4')
+
+-- Query 5
 SELECT
   N_NAME,
   sum(L_EXTENDEDPRICE * (1 - L_DISCOUNT)) AS revenue
@@ -137,7 +145,9 @@ GROUP BY
   N_NAME
 ORDER BY
   revenue DESC
-OPTION (LABEL = 'TPCH-Q5')-- Query 6
+OPTION (LABEL = 'TPCH-Q5')
+
+-- Query 6
 SELECT
   sum(L_EXTENDEDPRICE * L_DISCOUNT) AS revenue
 FROM
@@ -147,7 +157,9 @@ WHERE
   AND L_SHIPDATE < '1998-01-01' -- [DATE] + interval '1' year
   AND L_DISCOUNT BETWEEN 0.08 - 0.01 AND 0.08 + 0.01 -- [DISCOUNT] +/- 0.01 - DISCOUNT is randomly selected within [0.02 .. 0.09]
   AND L_QUANTITY < 24 -- QUANTITY is randomly selected within [24 .. 25]
-OPTION (LABEL = 'TPCH-Q6')-- Query 7
+OPTION (LABEL = 'TPCH-Q6')
+
+-- Query 7
 SELECT
   supp_nation,
   cust_nation,
@@ -194,7 +206,9 @@ ORDER BY
   supp_nation,
   cust_nation,
   l_year
-OPTION (LABEL = 'TPCH-Q7')-- Query 8
+OPTION (LABEL = 'TPCH-Q7')
+
+-- Query 8
 SELECT
   o_year,
   sum(
@@ -232,7 +246,9 @@ GROUP BY
   o_year
 ORDER BY
   o_year
-OPTION (LABEL = 'TPCH-Q8')-- Query 9
+OPTION (LABEL = 'TPCH-Q8')
+
+-- Query 9
 SELECT
   NATION,
   o_year,
@@ -265,7 +281,9 @@ GROUP BY
 ORDER BY
   NATION,
   o_year DESC
-OPTION (LABEL = 'TPCH-Q9')-- Query 10
+OPTION (LABEL = 'TPCH-Q9')
+
+-- Query 10
 SELECT
   TOP (20) C_CUSTKEY,
   C_NAME,
@@ -297,7 +315,9 @@ GROUP BY
   C_COMMENT
 ORDER BY
   revenue DESC
-OPTION (LABEL = 'TPCH-Q10')-- Query 11
+OPTION (LABEL = 'TPCH-Q10')
+
+-- Query 11
 SELECT
   PS_PARTKEY,
   sum(PS_SUPPLYCOST * PS_AVAILQTY) AS value
@@ -326,7 +346,9 @@ HAVING
   )
 ORDER BY
   value DESC
-OPTION (LABEL = 'TPCH-Q11')-- Query 12
+OPTION (LABEL = 'TPCH-Q11')
+
+-- Query 12
 SELECT
   L_SHIPMODE,
   sum(
@@ -351,7 +373,9 @@ GROUP BY
   L_SHIPMODE
 ORDER BY
   L_SHIPMODE
-OPTION (LABEL = 'TPCH-Q12')-- Query 13
+OPTION (LABEL = 'TPCH-Q12')
+
+-- Query 13
 SELECT
   c_count,
   count_big(*) AS custdist
@@ -372,7 +396,9 @@ GROUP BY
 ORDER BY
   custdist DESC,
   c_count DESC
-OPTION (LABEL = 'TPCH-Q13')-- Query 14
+OPTION (LABEL = 'TPCH-Q13')
+
+-- Query 14
 SELECT
   100.00 * sum(
     CASE WHEN P_TYPE LIKE 'PROMO%' THEN L_EXTENDEDPRICE * (1 - L_DISCOUNT) ELSE 0 END
@@ -384,7 +410,9 @@ WHERE
   L_PARTKEY = P_PARTKEY
   AND L_SHIPDATE >= '1997-05-01'
   AND L_SHIPDATE < '1997-06-01'
-OPTION (LABEL = 'TPCH-Q14')-- Query 15
+OPTION (LABEL = 'TPCH-Q14')
+
+-- Query 15
 SELECT
   S_SUPPKEY,
   S_NAME,
@@ -426,7 +454,9 @@ WHERE
   )
 ORDER BY
   S_SUPPKEY
-OPTION (LABEL = 'TPCH-Q15')-- Query 16
+OPTION (LABEL = 'TPCH-Q15')
+
+-- Query 16
 SELECT
   P_BRAND,
   P_TYPE,
@@ -466,7 +496,9 @@ ORDER BY
   P_BRAND,
   P_TYPE,
   P_SIZE
-OPTION (LABEL = 'TPCH-Q16')-- Query 17
+OPTION (LABEL = 'TPCH-Q16')
+
+-- Query 17
 SELECT
   sum(L_EXTENDEDPRICE) / 7.0 AS avg_yearly
 FROM
@@ -484,7 +516,9 @@ WHERE
     WHERE
       L_PARTKEY = P_PARTKEY
   )
-OPTION (LABEL = 'TPCH-Q17')-- Query 18
+OPTION (LABEL = 'TPCH-Q17')
+
+-- Query 18
 SELECT
   TOP (100) C_NAME,
   C_CUSTKEY,
@@ -518,7 +552,9 @@ GROUP BY
 ORDER BY
   O_TOTALPRICE DESC,
   O_ORDERDATE
-OPTION (LABEL = 'TPCH-Q18')-- Query 19
+OPTION (LABEL = 'TPCH-Q18')
+
+-- Query 19
 SELECT
   sum(L_EXTENDEDPRICE * (1 - L_DISCOUNT)) AS revenue
 FROM
@@ -570,7 +606,9 @@ WHERE
     AND L_SHIPMODE IN ('AIR', 'AIR REG')
     AND L_SHIPINSTRUCT = 'DELIVER IN PERSON'
   )
-OPTION (LABEL = 'TPCH-Q19')-- Query 20
+OPTION (LABEL = 'TPCH-Q19')
+
+-- Query 20
 SELECT
   S_NAME,
   S_ADDRESS
@@ -608,7 +646,9 @@ WHERE
   AND N_NAME = 'ARGENTINA' -- [NATION]
 ORDER BY
   S_NAME
-OPTION (LABEL = 'TPCH-Q20')-- Query 21
+OPTION (LABEL = 'TPCH-Q20')
+
+-- Query 21
 SELECT
   TOP (100) S_NAME,
   count_big(*) AS numwait
@@ -648,7 +688,9 @@ GROUP BY
 ORDER BY
   numwait DESC,
   S_NAME
-OPTION (LABEL = 'TPCH-Q21')-- Query 22
+OPTION (LABEL = 'TPCH-Q21')
+
+-- Query 22
 SELECT
   cntrycode,
   count_big(*) AS numcust,
@@ -701,3 +743,4 @@ GROUP BY
 ORDER BY
   cntrycode
 OPTION (LABEL = 'TPCH-Q22')
+
