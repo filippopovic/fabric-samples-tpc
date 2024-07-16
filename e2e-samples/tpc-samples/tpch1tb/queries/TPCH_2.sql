@@ -1,0 +1,45 @@
+-- Query 2
+SELECT
+  TOP (100) S_ACCTBAL,
+  S_NAME,
+  N_NAME,
+  P_PARTKEY,
+  P_MFGR,
+  S_ADDRESS,
+  S_PHONE,
+  S_COMMENT
+FROM
+  part,
+  supplier,
+  partsupp,
+  nation,
+  region
+WHERE
+  P_PARTKEY = PS_PARTKEY
+  AND S_SUPPKEY = PS_SUPPKEY
+  AND P_SIZE = 28
+  AND P_TYPE LIKE '%STEEL'
+  AND S_NATIONKEY = N_NATIONKEY
+  AND N_REGIONKEY = R_REGIONKEY
+  AND R_NAME = 'MIDDLE EAST'
+  AND PS_SUPPLYCOST = (
+    SELECT
+      min(PS_SUPPLYCOST)
+    FROM
+      partsupp,
+      supplier,
+      nation,
+      region
+    WHERE
+      P_PARTKEY = PS_PARTKEY
+      AND S_SUPPKEY = PS_SUPPKEY
+      AND S_NATIONKEY = N_NATIONKEY
+      AND N_REGIONKEY = R_REGIONKEY
+      AND R_NAME = 'MIDDLE EAST'
+  )
+ORDER BY
+  S_ACCTBAL DESC,
+  N_NAME,
+  S_NAME,
+  P_PARTKEY
+OPTION (LABEL = 'TPCH-Q2')

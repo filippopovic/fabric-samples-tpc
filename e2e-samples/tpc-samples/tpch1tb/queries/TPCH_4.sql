@@ -1,0 +1,23 @@
+-- Query 4
+SELECT
+  O_ORDERPRIORITY,
+  count_big(*) AS order_count
+FROM
+  orders
+WHERE
+  O_ORDERDATE >= '1997-03-01' -- [DATE]
+  AND O_ORDERDATE < '1997-06-01' -- [DATE] + interval '3' month
+  AND EXISTS (
+    SELECT
+      *
+    FROM
+      lineitem
+    WHERE
+      L_ORDERKEY = O_ORDERKEY
+      AND L_COMMITDATE < L_RECEIPTDATE
+  )
+GROUP BY
+  O_ORDERPRIORITY
+ORDER BY
+  O_ORDERPRIORITY
+OPTION (LABEL = 'TPCH-Q4')

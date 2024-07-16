@@ -74,7 +74,7 @@ This step creates necessary tables in either the warehouse or lakehouse, in a wa
 
 **Preparation**: Ensure that you have already set up a data warehouse or lakehouse. This is a prerequisite for the steps that follow.
 
-**Script Execution**: Execute “Create tables” script/notebook.
+**Script Execution**: Execute "1-Create objects script" from [TPCH1TB/setup](./tpch1tb/setup) folder.
 
 **Best practices** (already applied for you in the provided script/notebook)**:** The crucial point is to [choose the best data type for performance](https://learn.microsoft.com/en-us/fabric/data-warehouse/guidelines-warehouse-performance#choose-the-best-data-type-for-performance):
 
@@ -94,9 +94,9 @@ This step involves importing data into your warehouse or lakehouse. When you use
 
 Below, you will find the specific script for the warehouse and the notebook for the lakehouse to facilitate this data ingestion.
 
-**Preparation**: N/A - provided scripts and notebooks ingest the data from the public storage account that already contains datasets.
+**Preparation**: N/A - scripts and notebooks that ingest the data from the public storage account are provided in this repo.
 
-**Script Execution**: Depending on your environment, execute the designated script/notebook. 
+**Script Execution**: Execute "2-Ingest data" from [TPCH1TB/setup](./tpch1tb/setup) folder. 
 
 **Best practices** (already applied for you):
 
@@ -112,10 +112,12 @@ Please note that duration of this step may vary depending whether your warehouse
 
 This step guarantees that the query optimizer has access to the most comprehensive statistics during the query optimization phase. Typically, statistics are automatically generated as needed, drawing from a subset of column values within the table. However, the statistics produced using this script will encompass all values, thereby equipping the query optimizer with the necessary data to determine the most efficient plan.
 
-The following script is to be executed in warehouse or in SQL endpoint for analytics of your lakehouse.
+**Script Execution**: Execute "3-Post ingestion conditioning" from [TPCH1TB/setup](./tpch1tb/setup) folder. 
 
 
 
 ## Step 4 - Benchmark execution
 
 Feel free to use any benchmarking tool compatible with Fabric. However, it's important to [collocate client applications and Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-warehouse/guidelines-warehouse-performance#collocate-client-applications-and-microsoft-fabric) to ensure that the tool is located in the same geographical region as your warehouse or lakehouse. Adhering to the guidelines outlined in this document will not only help you attain optimal performance in this benchmark but also enhance efficiency in your regular workloads.
+
+You can find scripts in [TPCH1TB/queries](./tpch1tb/queries) folder. 
