@@ -1,16 +1,18 @@
-# TPCH and DS benchmark setup guide for Fabric Warehouse and SQL Endpoint for analytics
+# TPCH benchmark setup guide for Fabric Warehouse and SQL Endpoint for analytics
 
-This guide provides instructions for setting up querying part of TPC-H and TPC-DS performance benchmarks using Microsoft Fabric Warehouse and SQL Endpoint for analytics, aiming to achieve the best possible performance. While it does not cover the whole benchmarks, it covers querying part of the benchmarks and can be used as a starting point. For official benchmark guidelines, please refer to [TPC-Homepage](https://www.tpc.org/).
+This guide provides instructions for setting up querying part of TPC-H performance benchmarks using Microsoft Fabric Warehouse and SQL Endpoint for analytics, aiming to achieve the best possible performance. While it does not cover the whole benchmarks, it covers querying part of the benchmarks and can be used as a sample workload. 
 
-Before describing the object creation guidelines and scripts, let's briefly explain the difference between the TPC-H and TPC-DS benchmarks.
+These workload are derived from the TPC-H Benchmark and is not comparable to published TPC-H Benchmark results, as these implementations do not comply with all requirements of the TPC-H Benchmark. For official benchmark guidelines, please refer to [TPC-Homepage](https://www.tpc.org/).
 
-| **Aspect**          | **TPC-H**                                                    | **TPC-DS**                                                   |
-| ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Purpose**         | Measures decision support system performance in a data warehouse context. | Measures decision support system and Big Data performance.   |
-| **Data Model**      | Retail product supplier schema, broadly applicable.          | Similar to TPC-H, but designed to be broadly representative of modern decision support system. |
-| **Schema**          | 8 tables                                                     | 24 tables                                                    |
-| **Queries**         | Set of 22 ad-hoc queries simulating business intelligence workloads. | Set of 99 queries covering various operational requirements and complexities. |
-| **Characteristics** | OLAP workload<br />Large data volumes<br />High CPU and I/O demands | Advanced SQL features and functions<br />High CPU and I/O demands |
+Key TPC-H characteristics:
+
+| **Aspect**          | **TPC-H**                                                    |
+| ------------------- | ------------------------------------------------------------ |
+| **Purpose**         | Measures  decision support system performance in a data warehouse context. |
+| **Data Model**      | Retail  product supplier schema, broadly applicable.         |
+| **Schema**          | 8  tables                                                    |
+| **Queries**         | Set of  22 ad-hoc queries simulating business intelligence workloads. |
+| **Characteristics** | ·      OLAP workload  ·      Large data volumes  ·      High CPU and I/O demands |
 
 To maximize performance in these performance benchmarks, it's crucial to adhere closely to the guidelines outlined in this document.
 
@@ -20,19 +22,19 @@ This guide provides:
 
 - Object creation guidelines and scripts
 
-- Data
+- Data in parquet format
 
 - Ingestion scripts
 
 - Post-ingestion conditioning script
 
-- TPC-H and TPC-DS queries
+- TPC-H queries
 
 
 
 This guide does not provide:
 
-- Guidance on creating TPC-H and TPC-DS datasets. Scripts and notebooks ingest data that is already generated for you.
+- Guidance on creating TPC-H dataset. Scripts and notebooks ingest data that is already generated for you.
 - Guidance on running non-querying parts of benchmark.
 - Tool to execute queries. You can use tool of your choice that works with Fabric Warehouse and SQL analytics endpoint.
 
@@ -60,7 +62,7 @@ Useful links:
 
 Before continuing, please make sure you have:
 
-- Familiarity with TPC-H/DS benchmarks.
+- Familiarity with TPC-H benchmarks.
 
 - Access to Fabric workspace; useful links: [Getting Started | Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric/getting-started) and [Create a workspace - Microsoft Fabric | Microsoft Learn](https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces)
 
@@ -120,4 +122,4 @@ This step guarantees that the query optimizer has access to the most comprehensi
 
 Feel free to use any benchmarking tool compatible with Fabric. However, it's important to [collocate client applications and Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-warehouse/guidelines-warehouse-performance#collocate-client-applications-and-microsoft-fabric) to ensure that the tool is located in the same geographical region as your warehouse or lakehouse. Adhering to the guidelines outlined in this document will not only help you attain optimal performance in this benchmark but also enhance efficiency in your regular workloads.
 
-You can find scripts in [TPCH1TB/queries](./tpch1tb/queries) folder. 
+You can find scripts in [TPCH1TB/queries](./tpch1tb/queries) folder. If you ingested data into the lakehouse, please note that you need to use SQL Endpoint for analytics to execute SQL scripts.
