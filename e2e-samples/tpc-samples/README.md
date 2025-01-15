@@ -63,7 +63,7 @@ This step creates necessary tables in the warehouse, in a way to get optimal per
 
 **Preparation**: Ensure that you have already set up a data warehouse. This is a prerequisite for the steps that follow.
 
-**Script Execution**: Execute [1Createobjectsscript](./tpch1tb/setup/warehouse/1-Create objects.sql).
+**Script Execution**: Execute [1-Create objects script](./tpch1tb/setup/warehouse/1-Create%20objects.sql).
 
 **Best practices** (already applied for you in the provided script)**:** The crucial point is to [choose the best data type for performance](https://learn.microsoft.com/en-us/fabric/data-warehouse/guidelines-warehouse-performance#choose-the-best-data-type-for-performance):
 
